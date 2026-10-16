@@ -1,0 +1,394 @@
+{
+  "usage": "面试官参考，严格模拟时不向候选人提前展示评分证据或追问树。",
+  "cards": [
+    {
+      "id": "Q12",
+      "theme": "工具与编排",
+      "kind": "场景",
+      "level": "中级",
+      "question": "工具增长到一百多个时，如何注册、检索与选择？",
+      "intent": "工具规模增加后的可发现性与选择",
+      "source_ids": [
+        "I05"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "说明工具描述、目录或注册信息",
+        "说明可用工具的筛选与选择过程",
+        "区分选择相关性和调用权限"
+      ],
+      "acceptable_alternatives": [
+        "少量工具全量提供或工具检索均可；规模和预算应有依据"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "将所有接口直接塞上下文后不考虑代价",
+          "question": "工具清单超过上下文预算时，你怎样选择当前可见工具？"
+        },
+        {
+          "trigger": "检索到工具就默认获得权限",
+          "question": "工具被检索到以后，谁还需要检查调用权限？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "工具描述更新后，你怎样防止旧目录继续误导调用？",
+      "technical_source_ids": [
+        "T02"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q13",
+      "theme": "工具与编排",
+      "kind": "场景",
+      "level": "中级",
+      "question": "现有工具无法解决任务时，系统怎样处理？",
+      "intent": "识别能力边界及可控失败",
+      "source_ids": [
+        "I05"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "能识别缺工具与执行错误的区别",
+        "有澄清、转人工或结束等有限退路",
+        "不虚构工具和执行结果"
+      ],
+      "acceptable_alternatives": [
+        "可以明确告知无法完成；不强制多Agent接管"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "无限重试",
+          "question": "替代路径也持续失败时，在哪个条件下结束？"
+        },
+        {
+          "trigger": "让模型编造已经执行成功",
+          "question": "没有实际执行成功时，怎样向用户描述完成状态？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "替代工具只能完成部分任务，你怎样返回结果？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q14",
+      "theme": "工具与编排",
+      "kind": "基础",
+      "level": "中级",
+      "question": "Skill、MCP、Function Calling、Workflow、SubAgent各解决什么问题？",
+      "intent": "区分协议、调用机制与控制流程",
+      "source_ids": [
+        "I02"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "按项目语境定义各概念的职责",
+        "用一个任务说明组合关系",
+        "不把协议接入等同规划、授权或成功保证"
+      ],
+      "acceptable_alternatives": [
+        "Skills并无单一跨产品实现，允许先声明使用产品和版本"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "把MCP说成Agent架构或自动授权",
+          "question": "MCP接入后，任务规划和权限检查分别由谁负责？"
+        },
+        {
+          "trigger": "将所有概念当同义词",
+          "question": "请用一个任务说明这些概念各自出现在哪个环节。"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "同一能力同时提供CLI和MCP入口，如何按运行环境选择？",
+      "technical_source_ids": [
+        "T02",
+        "T07"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q15",
+      "theme": "工具与编排",
+      "kind": "场景",
+      "level": "中级",
+      "question": "一个任务为什么适合固定Workflow，什么时候才需要模型自主决策？",
+      "intent": "按确定性和任务边界选择控制方式",
+      "source_ids": [
+        "I02",
+        "I01"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "说明任务步骤和不确定性来自哪里",
+        "解释哪些环节固定、哪些环节动态决策",
+        "有失败、暂停与结束条件"
+      ],
+      "acceptable_alternatives": [
+        "混合控制流、固定流程或自主循环均可；不要求某命名模式"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "认为Agent越自主越好",
+          "question": "若固定流程已经能稳定完成任务，增加自主决策解决了什么问题？"
+        },
+        {
+          "trigger": "只有模式名没有实际控制流",
+          "question": "请指出流程中由模型改变下一步的一处具体位置。"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "任务规则稳定但输入多变，你会把变化放在哪一层？",
+      "technical_source_ids": [
+        "T07"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q16",
+      "theme": "工具与编排",
+      "kind": "场景",
+      "level": "初级",
+      "question": "Agent反复调用工具陷入循环，怎样约束与终止？",
+      "intent": "建立有界执行而非无限循环",
+      "source_ids": [
+        "I16"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "有步数、时间或费用等明确预算",
+        "能识别重复无进展的行为",
+        "停止后保留状态并说明完成范围"
+      ],
+      "acceptable_alternatives": [
+        "预算、状态机、人工接管等组合均可，不要求固定阈值"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只在提示词里要求不要循环",
+          "question": "提示词之外，运行程序用什么条件强制停止循环？"
+        },
+        {
+          "trigger": "达到限制后伪报任务成功",
+          "question": "预算耗尽但任务没完成时，最终应返回什么状态？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "两条不同工具路径交替重复时，怎样发现没有进展？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q17",
+      "theme": "工具与编排",
+      "kind": "场景",
+      "level": "初级",
+      "question": "用户输入不完整或资源有歧义时，哪些参数需要澄清确认？",
+      "intent": "处理输入歧义和执行前提",
+      "source_ids": [
+        "I02"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "指出缺少的信息与可能选择",
+        "说明可安全使用默认值的边界",
+        "不可唯一定位或有重要副作用时澄清"
+      ],
+      "acceptable_alternatives": [
+        "只读低风险请求可明确假设；无需为每个字段都打断用户"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "自行猜选不可逆操作对象",
+          "question": "存在两个同名对象且操作无法撤回时，你怎样确定对象？"
+        },
+        {
+          "trigger": "把参数类型校验当成业务确认",
+          "question": "参数类型都正确，但缺少业务前提时，你还会检查什么？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "用户说沿用上次设置，但当前会话没有记录，如何处理？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q18",
+      "theme": "上下文与记忆",
+      "kind": "基础",
+      "level": "初级",
+      "question": "长期与短期记忆分别存什么，如何实现？",
+      "intent": "区分状态生命周期和记忆用途",
+      "source_ids": [
+        "I12",
+        "I13"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "区分当前会话状态与跨会话信息",
+        "说明访问范围、存放位置和读取时机",
+        "能解释删除、过期或错误信息的处理"
+      ],
+      "acceptable_alternatives": [
+        "文件、关系库、KV或检索存储均可；短期状态也可持久化"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "将长期记忆简单等同无限聊天历史",
+          "question": "哪些历史信息值得长期保留，哪些可以丢弃？"
+        },
+        {
+          "trigger": "进程内状态与持久化混淆",
+          "question": "这些状态只在内存里时，进程重启后还剩下什么？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "同一用户有两段并行会话，哪些信息共享、哪些隔离？",
+      "technical_source_ids": [
+        "T01"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q19",
+      "theme": "上下文与记忆",
+      "kind": "场景",
+      "level": "中级",
+      "question": "运行容器迁移或重启后，会话上下文如何恢复？",
+      "intent": "区分状态保存和执行恢复",
+      "source_ids": [
+        "I12"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "明确需要恢复的状态",
+        "说明恢复点与保存时机",
+        "考虑已发生工具副作用，避免重复执行"
+      ],
+      "acceptable_alternatives": [
+        "持久化日志或检查点均可；不要求使用某框架"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只保存聊天记录就声称能完整续跑",
+          "question": "除了聊天文本，恢复任务还需要哪些执行状态？"
+        },
+        {
+          "trigger": "重启后盲目重做写操作",
+          "question": "工具已完成写操作但保存状态失败时，怎样避免重做？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "实例迁移到另一台机器，恢复还依赖哪些本地内容？",
+      "technical_source_ids": [
+        "T01"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q20",
+      "theme": "上下文与记忆",
+      "kind": "场景",
+      "level": "中级",
+      "question": "长任务发生中断或忘记执行计划时，怎样继续？",
+      "intent": "处理长任务中的计划漂移和故障",
+      "source_ids": [
+        "I07"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "有可恢复的目标、进度或任务状态",
+        "区分可重试与需澄清的失败",
+        "继续执行前核对已完成部分和当前目标"
+      ],
+      "acceptable_alternatives": [
+        "任务清单、状态机、持久化工作流等均可"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只要求模型再想一遍",
+          "question": "怎样从程序状态判断当前目标和已完成步骤？"
+        },
+        {
+          "trigger": "不记录结果便声称能断点恢复",
+          "question": "没有记录完成状态时，你凭什么确定该从哪一步恢复？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "计划未变但工具返回数据已过期，你如何决定重做范围？",
+      "technical_source_ids": [
+        "T01"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q21",
+      "theme": "上下文与记忆",
+      "kind": "场景",
+      "level": "中级",
+      "question": "旧记忆与当前需求冲突时，怎样判断是否沿用旧方案？",
+      "intent": "处理记忆冲突而非盲目复用",
+      "source_ids": [
+        "I15"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "区分旧方案适用条件与当前事实",
+        "依据来源、时间和用户修正决定优先级",
+        "不确定时澄清或降低自动执行程度"
+      ],
+      "acceptable_alternatives": [
+        "显式规则、版本化记录或证据检索均可"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "认为越近的记忆一定正确",
+          "question": "新记忆只是未经核实的说法时，是否仍应覆盖较旧的可靠记录？"
+        },
+        {
+          "trigger": "把用户任意说法都写成事实",
+          "question": "用户纠错和可信事实之间，你怎样做核查与标注？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "不同用户对共享知识给出相反反馈，应该怎样处置？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q22",
+      "theme": "上下文与记忆",
+      "kind": "场景",
+      "level": "中级",
+      "question": "长文档分块后，汇总结果再次超出上下文时如何继续处理？",
+      "intent": "多阶段上下文处理的信息保真",
+      "source_ids": [
+        "I01"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "能继续分层处理或按需检索",
+        "保留关键事实的出处与定位",
+        "说明怎样检验压缩或汇总遗漏"
+      ],
+      "acceptable_alternatives": [
+        "分层摘要、结构化中间结果、检索或流式聚合均可"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "不断摘要并假设信息永远不丢",
+          "question": "你怎样检查摘要是否遗漏了影响结论的关键证据？"
+        },
+        {
+          "trigger": "把多个Agent输出全部拼接回原窗口",
+          "question": "所有子Agent输出拼接后仍超窗，下一步怎样控制输入？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "不同分块结论互相冲突时，怎样汇总而不掩盖差异？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    }
+  ]
+}

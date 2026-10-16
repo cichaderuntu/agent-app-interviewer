@@ -1,0 +1,389 @@
+{
+  "usage": "面试官参考，严格模拟时不向候选人提前展示评分证据或追问树。",
+  "cards": [
+    {
+      "id": "Q01",
+      "theme": "项目与业务",
+      "kind": "项目",
+      "level": "初级",
+      "question": "选一条真实请求，讲清输入、路由、工具执行、存储到输出的全过程，以及你负责的部分。",
+      "intent": "核对端到端理解和个人职责",
+      "source_ids": [
+        "I02"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "给出具体输入及对应输出",
+        "按顺序说明实际经过的组件和数据",
+        "区分自己与团队实现的部分"
+      ],
+      "acceptable_alternatives": [
+        "口述或图示均可；个人Demo不要求生产流量"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只报框架名",
+          "question": "请选一个你实际写过的节点，只讲它的输入和输出。"
+        },
+        {
+          "trigger": "把整个团队成果归于个人",
+          "question": "你亲自实现了哪些部分，哪些由同学或框架提供？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "换一条需要实际工具执行而非问答的请求，说明链路如何变化。",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q02",
+      "theme": "项目与业务",
+      "kind": "项目",
+      "level": "中级",
+      "question": "项目价值如何验证？哪些瓶颈被解决，改善来自哪个环节？",
+      "intent": "核对收益口径和归因",
+      "source_ids": [
+        "I02",
+        "I13"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "说明原始问题和比较基线",
+        "解释指标定义、样本与测量方式",
+        "将改动与效果建立有限因果联系，说明未排除因素"
+      ],
+      "acceptable_alternatives": [
+        "无线上数据时可提供离线对照或可复现实验，并明确限制"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只有百分比没有分母",
+          "question": "这里的指标怎样计算，分子分母分别是什么？"
+        },
+        {
+          "trigger": "把Demo用时等同线上收益",
+          "question": "这些数据来自演示、离线测试还是实际线上使用？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "同样成功率下成本上升一倍，你怎样判断这次改动是否值得？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q03",
+      "theme": "项目与业务",
+      "kind": "项目",
+      "level": "中级",
+      "question": "为什么自研Agent核心流程？使用现有框架的代价和收益是什么？",
+      "intent": "考察选型依据而非框架偏好",
+      "source_ids": [
+        "I06",
+        "I16"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "说明需要控制的具体行为",
+        "比较至少一种可行替代路径的成本与限制",
+        "说明自研范围、维护负担和验证办法"
+      ],
+      "acceptable_alternatives": [
+        "使用框架或自研都可；不要求亲自实现框架底层"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "以轻量或灵活作为全部理由",
+          "question": "哪一项具体需求让现有框架不合适？"
+        },
+        {
+          "trigger": "把未实现的功能当成现成能力",
+          "question": "你刚提到的能力中，哪些已经实现，哪些还在计划中？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "团队从一人增加到五人，你会重新考虑哪些边界？",
+      "technical_source_ids": [
+        "T07"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    },
+    {
+      "id": "Q04",
+      "theme": "项目与业务",
+      "kind": "项目",
+      "level": "初级",
+      "question": "项目是否部署、被谁使用？你遇到的具体困难和处理实例是什么？",
+      "intent": "确认交付范围和具体解决问题能力",
+      "source_ids": [
+        "I18"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "如实说明运行位置与使用者",
+        "举一个实际失败例子及定位动作",
+        "说明修复验证或尚未解决的限制"
+      ],
+      "acceptable_alternatives": [
+        "课程作业、未上线项目同样可答；不以用户量决定掌握度"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "声称上线却讲不出部署方式",
+          "question": "你所说的上线，实际运行在哪里、由谁使用？"
+        },
+        {
+          "trigger": "只有抽象困难没有例子",
+          "question": "请只讲一个具体失败实例，当时你做了什么？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "把同一问题放到多人并发使用时，排查方式会变吗？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q34",
+      "theme": "AI Coding",
+      "kind": "项目",
+      "level": "中级",
+      "question": "展示一次使用AI完成任务的过程，你修改过它的哪些技术决策？",
+      "intent": "核对AI协作过程中的个人判断",
+      "source_ids": [
+        "I01"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "从需求到变更说明真实流程",
+        "指出AI建议与最终方案之间的差别",
+        "说明如何检查改动与验收结果"
+      ],
+      "acceptable_alternatives": [
+        "可口述或展示已有材料，不要求交出私有代码或密钥"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "只报生成代码比例",
+          "question": "请举一个你亲自审查并修改AI建议的具体例子。"
+        },
+        {
+          "trigger": "把模型自报测试通过当成执行证据",
+          "question": "你怎样确认测试确实执行过，结果来自什么输出？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "AI给出的实现能跑但违反业务约束，你怎样纠正？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q35",
+      "theme": "AI Coding",
+      "kind": "场景",
+      "level": "初级",
+      "question": "AI生成代码的质量如何保证？你用哪些测试或审查验证？",
+      "intent": "验证生成代码的实际行为",
+      "source_ids": [
+        "I14",
+        "I07"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "将需求变为可检查的行为",
+        "有代码审查和实际验证动作",
+        "能说明失败用例与未验证范围"
+      ],
+      "acceptable_alternatives": [
+        "测试、人工复查、静态检查或演示可组合，需与风险相称"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "让AI自己说没问题就结束",
+          "question": "模型说没问题之外，你准备拿什么行为或检查结果验证？"
+        },
+        {
+          "trigger": "只验证理想输入",
+          "question": "哪一个非理想输入最能暴露当前实现的问题？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "现有代码没有测试时，你如何验证一项小改动？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q36",
+      "theme": "AI Coding",
+      "kind": "场景",
+      "level": "中级",
+      "question": "面对长方案怎样抓重点审查，如何划分模型与普通代码的职责？",
+      "intent": "审查长方案与模型职责边界",
+      "source_ids": [
+        "I01"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "识别关键约束、数据流和失败边界",
+        "根据任务特征选择规则或模型",
+        "提出最小可验证实现及验收依据"
+      ],
+      "acceptable_alternatives": [
+        "任何工具和框架均可；不评价特定品牌偏好"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "照搬长方案而说不清模块职责",
+          "question": "请选一个模块，说清它的数据输入、输出和约束。"
+        },
+        {
+          "trigger": "把需求歧义交给模型随意决定",
+          "question": "需求无法唯一确定时，你怎样澄清或明确假设？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "产品要求冲突且无人可咨询，你怎样表达假设并推进？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q37",
+      "theme": "手写代码",
+      "kind": "编码",
+      "level": "中级",
+      "question": "实现LRU Cache，再讨论题目给出的变种要求。",
+      "intent": "实现符合题意的缓存行为",
+      "source_ids": [
+        "I01",
+        "I03"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "明确容量与get/put等接口",
+        "保证访问更新与淘汰的语义",
+        "解释复杂度并验证边界"
+      ],
+      "acceptable_alternatives": [
+        "哈希表配双向链表或满足题目约束的库实现；先声明是否允许库"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "更新已有key仍错误增加容量",
+          "question": "更新一个已有key时，你怎样保证缓存容量不被错误增加？"
+        },
+        {
+          "trigger": "读操作不更新访问顺序却称LRU",
+          "question": "执行get以后，访问顺序应怎样变化？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "只增加过期时间或并发支持中的一项，说明语义和代价。",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q38",
+      "theme": "手写代码",
+      "kind": "编码",
+      "level": "中级",
+      "question": "实现K个一组反转链表。",
+      "intent": "正确处理分组边界和链表连接",
+      "source_ids": [
+        "I04"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "先确认不足k节点是否反转",
+        "每组反转后正确连接前后链",
+        "解释复杂度与终止条件"
+      ],
+      "acceptable_alternatives": [
+        "迭代或递归均可；按题目决定空间限制"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "丢失后继或形成环",
+          "question": "反转当前节点前，怎样保留原来的后继并避免形成环？"
+        },
+        {
+          "trigger": "未确认不足一组的题意",
+          "question": "剩余节点不足k个时，题目要求怎样处理？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "若额外要求常数辅助空间，当前实现需怎样变化？",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q39",
+      "theme": "手写代码",
+      "kind": "编码",
+      "level": "中级",
+      "question": "实现大数乘法；或实现无重复字符的最长子串。",
+      "intent": "在两种题目中选择一种并验证",
+      "source_ids": [
+        "I12",
+        "I05"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "先明确题型、输入范围和输出",
+        "给出正确不变量或计算步骤",
+        "验证边界并说明复杂度"
+      ],
+      "acceptable_alternatives": [
+        "大数乘法可按位计算；最长子串可用滑动窗口；其他满足约束算法亦可"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "解题步骤不清，无法通过一个小例子验证",
+          "question": "请用一个最容易出错的小输入，手动执行当前所选算法。"
+        },
+        {
+          "trigger": "忽略进位或重复字符移窗规则",
+          "question": "针对当前题型，进位或窗口左边界是怎样更新的？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "大数题加前导零，或子串题加入非ASCII字符，任选当前题型的变体。",
+      "technical_source_ids": [],
+      "technical_scope_note": "以任务约束、回答自洽和可观察证据评价；不以未核验的版本细节判错。"
+    },
+    {
+      "id": "Q40",
+      "theme": "手写代码",
+      "kind": "编码",
+      "level": "中级",
+      "question": "两个协程依次交替打印奇偶数，保证输出顺序。",
+      "intent": "用同步关系保证执行顺序和终止",
+      "source_ids": [
+        "I10"
+      ],
+      "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
+      "required_evidence": [
+        "澄清所用语言和执行单元",
+        "用显式同步安排交替与共享状态",
+        "处理结束及异常，避免忙等或永久等待"
+      ],
+      "acceptable_alternatives": [
+        "Go通道、Python条件变量或相应运行时的同步原语均可；不将线程冒称协程"
+      ],
+      "followup_triggers": [
+        {
+          "trigger": "用sleep碰运气保证顺序",
+          "question": "如果去掉sleep，输出顺序还由什么同步关系保证？"
+        },
+        {
+          "trigger": "结束后另一方永久阻塞",
+          "question": "最后一个数输出后，另一执行单元怎样退出而不永久等待？"
+        }
+      ],
+      "stop_condition": "达成当前问题约定证据后最多一个变体；总追问不超过2；连续两次无新证据则结束；用户要求结束立即复盘",
+      "retry_variant": "改成三个执行单元轮流输出，如何扩展同步协议？",
+      "technical_source_ids": [
+        "T08",
+        "T10"
+      ],
+      "technical_scope_note": "官方资料仅支撑其scope所述技术点；追问设计与其他判断为训练规则。"
+    }
+  ]
+}
