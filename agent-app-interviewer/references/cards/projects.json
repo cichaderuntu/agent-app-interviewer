@@ -184,7 +184,9 @@
       "intent": "验证生成代码的实际行为",
       "source_ids": [
         "I14",
-        "I07"
+        "I07",
+        "J12",
+        "J13"
       ],
       "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
       "required_evidence": [
