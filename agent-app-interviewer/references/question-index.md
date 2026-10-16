@@ -1,6 +1,6 @@
 # 题卡索引
 
-40道基础题来自2026-10-16调研；题卡的证据要求和追问由本技能设计。级别用于调节追问深度，不代表招聘公司的评级。
+当前42道基础题；初始40题来自2026-10-16调研，本次增补2题；题卡的证据要求和追问由本技能设计。级别用于调节追问深度，不代表招聘公司的评级。
 
 先在此选择问题，再只读对应JSON中的目标题卡。无需一次载入全部题卡或来源。
 
@@ -28,7 +28,7 @@
 | Q20 | 上下文与记忆 | 场景／中级 | 长任务发生中断或忘记执行计划时，怎样继续？ | [agents.json](cards/agents.json) | I07 |
 | Q21 | 上下文与记忆 | 场景／中级 | 旧记忆与当前需求冲突时，怎样判断是否沿用旧方案？ | [agents.json](cards/agents.json) | I15 |
 | Q22 | 上下文与记忆 | 场景／中级 | 长文档分块后，汇总结果再次超出上下文时如何继续处理？ | [agents.json](cards/agents.json) | I01 |
-| Q23 | 评测与可靠性 | 场景／中级 | 最终输出与中间节点怎样分别评估？评测样本和评分规则怎样构建？ | [evaluation.json](cards/evaluation.json) | J01、J04 |
+| Q23 | 评测与可靠性 | 场景／中级 | 最终输出与中间节点怎样分别评估？评测样本和评分规则怎样构建？ | [evaluation.json](cards/evaluation.json) | J01、J04、I19 |
 | Q24 | 评测与可靠性 | 项目／中级 | 业务指标、Agent表现和你承担的模块之间如何对应？ | [evaluation.json](cards/evaluation.json) | I13 |
 | Q25 | 评测与可靠性 | 场景／中级 | 模型输出结论如何得到事实依据？是否有确定性校验？ | [evaluation.json](cards/evaluation.json) | I01 |
 | Q26 | 评测与可靠性 | 场景／中级 | 用另一个Agent检查输出时，如何处理检查者自身出错？ | [evaluation.json](cards/evaluation.json) | I01 |
@@ -40,12 +40,15 @@
 | Q32 | 后端与基础 | 场景／中级 | Agent并发请求如何限流？多Agent同时运行有哪些性能问题？ | [backend.json](cards/backend.json) | I10、I13 |
 | Q33 | 后端与基础 | 基础／中级 | Redis数据结构或Java类加载怎样与项目中的实际使用对应？ | [backend.json](cards/backend.json) | I13 |
 | Q34 | AI Coding | 项目／中级 | 展示一次使用AI完成任务的过程，你修改过它的哪些技术决策？ | [projects.json](cards/projects.json) | I01 |
-| Q35 | AI Coding | 场景／初级 | AI生成代码的质量如何保证？你用哪些测试或审查验证？ | [projects.json](cards/projects.json) | I14、I07 |
+| Q35 | AI Coding | 场景／初级 | AI生成代码的质量如何保证？你用哪些测试或审查验证？ | [projects.json](cards/projects.json) | I14、I07、J12、J13 |
 | Q36 | AI Coding | 场景／中级 | 面对长方案怎样抓重点审查，如何划分模型与普通代码的职责？ | [projects.json](cards/projects.json) | I01 |
 | Q37 | 手写代码 | 编码／中级 | 实现LRU Cache，再讨论题目给出的变种要求。 | [projects.json](cards/projects.json) | I01、I03 |
 | Q38 | 手写代码 | 编码／中级 | 实现K个一组反转链表。 | [projects.json](cards/projects.json) | I04 |
 | Q39 | 手写代码 | 编码／中级 | 实现大数乘法；或实现无重复字符的最长子串。 | [projects.json](cards/projects.json) | I12、I05 |
 | Q40 | 手写代码 | 编码／中级 | 两个协程依次交替打印奇偶数，保证输出顺序。 | [projects.json](cards/projects.json) | I10 |
+
+| Q41 | 工具与编排 | 场景／中级 | 为能修改文件的Agent设计执行前授权检查，你会在哪里作出允许或拒绝的决定？ | [agents.json](cards/agents.json) | I20 |
+| Q42 | 上下文与记忆 | 场景／中级 | 多次调用同一模型时，你会怎样安排提示词内容并验证Prompt Cache是否带来收益？ | [agents.json](cards/agents.json) | I21 |
 
 ## 选题约束
 
