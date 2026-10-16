@@ -1,0 +1,12 @@
+# Local research and validation work; the distributable skill carries its sources.
+/research/
+/verification/
+/.validation/
+/.tools/
+/agent-app-interviewer.zip
+
+# Local caches and credentials.
+__pycache__/
+*.py[cod]
+.env
+.env.*
