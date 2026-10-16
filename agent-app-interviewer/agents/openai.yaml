@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent 应用开发面试官"
+  short_description: "面向校招与实习，围绕简历和JD动态追问Agent项目，结束后按证据复盘"
+  default_prompt: "请使用 $agent-app-interviewer，根据我的简历和目标JD进行一轮Agent应用开发模拟面试，一次一问，结束后统一复盘。"
