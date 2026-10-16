@@ -71,4 +71,17 @@ agent-app-interviewer/
 4. 更新 `question-index.md`、数量说明及相关主题路由，检查所有引用和本地链接。
 5. 涉及面试行为的调整，用实际模拟场景验证后再发布新版。
 
-当前版本没有自动抓取或定时更新任务。
+本聊天已约定每周一 **14:00（北京时间）** 发起更新申请，首次为 **2026-10-19**。实际定时触发由桌面应用任务管理；复制仓库不会自动创建定时任务。电脑需开机且桌面应用保持运行。
+
+每周先申请，用户同意后才检索、更新并同步私有 GitHub 仓库；未回复不执行、批准不跨周复用。默认每轮最多20条有效新增来源、10张新题卡，不设最低数量。普通模拟面试不会触发维护。
+
+执行方法见 [每周增量维护](agent-app-interviewer/references/maintenance.md)。研究记录、申请状态和发布记录保存在被忽略的本地 `research/weekly-maintenance/`，不随技能上传。
+
+维护工具仅使用 Python 3.10+ 标准库（Windows可用 `py -3.14` 替代 `python`），不影响面试功能的无依赖使用：
+
+```sh
+python agent-app-interviewer/scripts/validate_bank.py
+python -m unittest discover -s agent-app-interviewer/scripts/tests -v
+```
+
+检查包含题卡字段、来源引用、待核验线索限制、索引与数量一致性；传入 `--baseline <上一版本技能目录>` 还会检查历史编号未被删除。脚本校验不替代原文核验和追问质量审查。
