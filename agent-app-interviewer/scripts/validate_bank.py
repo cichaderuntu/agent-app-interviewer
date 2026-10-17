@@ -8,7 +8,7 @@ import zipfile
 
 COUNT_PREFIXES = {'job_descriptions': 'J', 'interview_articles': 'I',
                   'community_threads': 'C', 'unverified_leads': 'L',
-                  'technical_references': 'T'}
+                  'technical_references': 'T', 'user_documents': 'D'}
 TEXT_FIELDS = ('theme', 'kind', 'level', 'question', 'intent', 'rubric_origin',
                'stop_condition', 'retry_variant', 'technical_scope_note')
 LIST_FIELDS = ('required_evidence', 'acceptable_alternatives', 'source_ids',
@@ -35,14 +35,25 @@ def validate(skill, baseline=None):
     sources, urls = {}, {}
     for source in ledger['sources']:
         sid = source.get('id', '')
-        if not re.fullmatch(r'[JICLT]\d{2,}', sid) or sid in sources:
+        if not re.fullmatch(r'[JICLTD]\d{2,}', sid) or sid in sources:
             errors.append(f'duplicate or invalid source ID: {sid}')
         sources[sid] = source
         for key in ('title', 'url', 'access'):
             if not isinstance(source.get(key), str) or not source[key].strip():
                 errors.append(f'{sid}: missing source field {key}')
         url = source.get('url', '')
-        if not isinstance(url, str) or urlsplit(url).scheme not in ('https', 'http'):
+        if sid.startswith('D'):
+            digest = source.get('sha256', '')
+            count = source.get('page_count')
+            pages = source.get('selected_pages')
+            if not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest) or url != 'urn:sha256:' + digest:
+                errors.append(f'{sid}: invalid document digest/URI')
+            if not isinstance(source.get('file_name'), str) or not source['file_name'].endswith('.pdf'):
+                errors.append(f'{sid}: missing PDF file name')
+            if type(count) is not int or count < 1 or not isinstance(pages, list) or not pages or any(
+                    type(page) is not int or page < 1 or page > count for page in pages):
+                errors.append(f'{sid}: invalid document page range')
+        elif not isinstance(url, str) or urlsplit(url).scheme not in ('https', 'http'):
             errors.append(f'{sid}: invalid source URL')
             continue
         normalized = canonical_url(url)
@@ -50,7 +61,7 @@ def validate(skill, baseline=None):
             errors.append(f'duplicate source URL: {sid} and {urls[normalized]}')
         urls[normalized] = sid
     for key, prefix in COUNT_PREFIXES.items():
-        if ledger['counts'].get(key) != sum(sid.startswith(prefix) for sid in sources):
+        if ledger['counts'].get(key, 0) != sum(sid.startswith(prefix) for sid in sources):
             errors.append(f'wrong source count: {key}')
     followups = 0
     for path in sorted((skill / 'references/cards').glob('*.json')):
@@ -68,6 +79,25 @@ def validate(skill, baseline=None):
                 if not isinstance(value, list) or (not value and key != 'technical_source_ids') or any(
                         not isinstance(item, str) or not item.strip() for item in value):
                     errors.append(f'{qid}: invalid or empty {key}')
+            if 'reference_answer' in card and (not isinstance(card['reference_answer'], list)
+                    or not card['reference_answer'] or any(not isinstance(item, str) or not item.strip()
+                    for item in card['reference_answer'])):
+                errors.append(f'{qid}: invalid reference answer')
+            documents = {sid for sid in card.get('source_ids', []) if isinstance(sid, str) and sid.startswith('D')}
+            located = set()
+            for evidence in card.get('document_evidence', []):
+                if not isinstance(evidence, dict):
+                    errors.append(f'{qid}: invalid document evidence')
+                    continue
+                sid, pages = evidence.get('source_id'), evidence.get('pages')
+                source = sources.get(sid, {})
+                if sid not in documents or not isinstance(pages, list) or not pages or any(
+                        type(page) is not int or page not in source.get('selected_pages', []) for page in pages):
+                    errors.append(f'{qid}: invalid document evidence pages')
+                else:
+                    located.add(sid)
+            if documents != located:
+                errors.append(f'{qid}: missing document evidence page locator')
             for key in ('source_ids', 'technical_source_ids'):
                 for sid in card.get(key, []) if isinstance(card.get(key), list) else []:
                     if not isinstance(sid, str) or sid not in sources:
@@ -102,7 +132,7 @@ def validate(skill, baseline=None):
             errors.append(f'{qid}: index points to wrong card file')
         if cells[3] != cards[qid]['question']:
             errors.append(f'{qid}: index question differs from card')
-        if set(re.findall(r'\b[JICLT]\d+\b', cells[5])) != set(cards[qid].get('source_ids', [])):
+        if set(re.findall(r'\b[JICLTD]\d+\b', cells[5])) != set(cards[qid].get('source_ids', [])):
             errors.append(f'{qid}: index sources differ from card')
     if indexed != cards.keys():
         errors.append('index/card IDs differ')

@@ -81,3 +81,39 @@
 来源：[官方文档](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)，核验2026-10-16。
 
 支持范围：稳定输入前缀复用、将变化内容放在其后，并观察缓存读写量；参数、价格和有效期按具体服务与版本核验，不作为跨供应商统一规则。
+
+## T13 JSON Schema object reference
+
+来源：[官方文档](https://json-schema.org/understanding-json-schema/reference/object)，核验2026-10-17。
+
+支持范围：properties、required、enum和additionalProperties等对象约束；不证明业务事实正确、已授权或所有模型都支持完整Schema。
+
+## T14 AWS Builders Library: Making retries safe with idempotent APIs
+
+来源：[官方文档](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)，核验2026-10-17。
+
+支持范围：调用者请求标识、重复请求等价结果、记录与变更的原子性及同键不同参数；不保证任意第三方接口有幂等能力。
+
+## T15 OpenTelemetry Traces
+
+来源：[官方文档](https://opentelemetry.io/docs/concepts/signals/traces/)，核验2026-10-17。
+
+支持范围：Trace、Span、父子关系、时间与跨异步工作关联；不能从时间关联直接证明根因，也不要求记录模型内部思维。
+
+## T16 Azure AI Search security filter pattern
+
+来源：[官方文档](https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search)，核验2026-10-17。
+
+支持范围：查询携带用户或组范围过滤；过滤字符串本身不是身份认证；不为所有向量库的物理隔离背书。
+
+## T17 MDN Using server-sent events
+
+来源：[官方文档](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)，核验2026-10-17。
+
+支持范围：SSE事件格式、id、retry和连接行为；任务持久化、事件重放与业务去重需应用自己实现。
+
+## T18 Azure Architecture Center Cache-Aside pattern
+
+来源：[官方文档](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)，核验2026-10-17。
+
+支持范围：读缓存及回源、更新数据后失效缓存、TTL与一致性限制；不保证任意并发时序下的强一致性。

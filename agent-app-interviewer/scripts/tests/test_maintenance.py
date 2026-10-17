@@ -78,6 +78,46 @@ class MaintenanceTests(unittest.TestCase):
         self.edit_json('references/cards/rag.json', lambda x: x['cards'].append(x['cards'][0]))
         self.assertNotEqual(self.validate().returncode, 0)
 
+    def add_document(self):
+        def change(data):
+            data['sources'].append({'id': 'D999', 'title': 'User PDF fixture',
+                'url': 'urn:sha256:' + 'f' * 64, 'sha256': 'f' * 64,
+                'file_name': 'fixture.pdf', 'page_count': 12,
+                'selected_pages': [3], 'access': 'selected pages read'})
+            data['counts']['user_documents'] = data['counts'].get('user_documents', 0) + 1
+        self.edit_json('references/sources.json', change)
+
+    def test_local_pdf_provenance_is_accepted_without_fake_web_link(self):
+        self.add_document()
+        self.okay(self.validate())
+
+    def test_local_pdf_digest_mismatch_is_rejected(self):
+        self.add_document()
+        self.edit_json('references/sources.json', lambda x: x['sources'][-1].update(sha256='a' * 64))
+        self.assertNotEqual(self.validate().returncode, 0)
+
+    def test_local_pdf_page_outside_document_is_rejected(self):
+        self.add_document()
+        self.edit_json('references/sources.json', lambda x: x['sources'][-1].update(selected_pages=[13]))
+        self.assertNotEqual(self.validate().returncode, 0)
+
+    def test_non_document_cannot_use_local_document_uri(self):
+        self.edit_json('references/sources.json', lambda x: x['sources'][0].update(url='urn:sha256:' + 'a' * 64))
+        self.assertNotEqual(self.validate().returncode, 0)
+
+    def test_empty_optional_reference_answer_is_rejected(self):
+        self.edit_json('references/cards/rag.json', lambda x: x['cards'][0].update(reference_answer=[]))
+        self.assertNotEqual(self.validate().returncode, 0)
+
+    def test_pdf_question_requires_page_locator(self):
+        self.add_document()
+        def change(data):
+            data['cards'][0]['source_ids'].append('D999')
+        self.edit_json('references/cards/rag.json', change)
+        result = self.validate()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('document evidence', result.stdout)
+
     def test_unknown_source_is_rejected(self):
         self.edit_json('references/cards/rag.json', lambda x: x['cards'][0]['source_ids'].append('I999'))
         self.assertNotEqual(self.validate().returncode, 0)
