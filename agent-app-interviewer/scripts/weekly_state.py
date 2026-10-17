@@ -1,7 +1,7 @@
-"""Record trusted chat approval per weekly round. This tool never grants approval.
+"""Optional local round-state utility. This tool never grants approval.
 
-No network operations. Run request on schedule; only approve after a real human
-reply for that round. All state lives outside the distributable skill by default.
+No network operations. Schedule and target repository can be supplied through a
+local JSON config. All state lives outside the distributable skill by default.
 """
 import argparse
 from datetime import datetime, time, timedelta, timezone
@@ -12,18 +12,31 @@ import sys
 
 from validate_bank import validate, verify_archive
 
-BEIJING = timezone(timedelta(hours=8))
 UNFINISHED = {'running', 'pending_publish', 'publish_failed'}
 
 
 def execute(args):
-    now = datetime.fromisoformat(args.at) if args.at else datetime.now(BEIJING)
+    config = json.loads(args.config.read_text(encoding='utf-8')) if args.config.exists() else {}
+    if not isinstance(config, dict):
+        raise ValueError('Local config must be a JSON object')
+    weekday, hour = config.get('weekday', 0), config.get('hour', 0)
+    offset = config.get('utc_offset_hours', 0)
+    if type(weekday) is not int or not 0 <= weekday <= 6 or type(hour) is not int or not 0 <= hour <= 23:
+        raise ValueError('Config weekday/hour is out of range')
+    if type(offset) is not int or not -12 <= offset <= 14:
+        raise ValueError('Config UTC offset is out of range')
+    repository = config.get('repository')
+    if repository is not None and (not isinstance(repository, str) or not re.fullmatch(
+            r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository)):
+        raise ValueError('Invalid configured repository')
+    zone = timezone(timedelta(hours=offset))
+    now = datetime.fromisoformat(args.at) if args.at else datetime.now(zone)
     if now.tzinfo is None:
         raise ValueError('--at must include a timezone')
-    now = now.astimezone(BEIJING)
-    monday = now.date() - timedelta(days=now.weekday())
-    scheduled = datetime.combine(monday, time(14), BEIJING)
-    current = monday.isoformat()
+    now = now.astimezone(zone)
+    period_start = now.date() - timedelta(days=(now.weekday() - weekday) % 7)
+    scheduled = datetime.combine(period_start, time(hour), zone)
+    current = period_start.isoformat()
     rid = args.round_id or current
     stamp = now.isoformat(timespec='seconds')
     state = json.loads(args.state.read_text(encoding='utf-8')) if args.state.exists() else {
@@ -32,7 +45,7 @@ def execute(args):
     notify, changed = False, True
     if args.action == 'request':
         if now < scheduled or rid != current:
-            raise ValueError('No weekly request before Monday 14:00 Beijing time')
+            raise ValueError('No request before the configured schedule')
         if rid in rounds:
             changed = False
         else:
@@ -51,7 +64,7 @@ def execute(args):
         if args.action == 'approve':
             if status != 'pending':
                 raise ValueError('Only a pending round can receive human approval')
-            record.update(status='approved', approved_at=stamp, approval_note=args.note or 'Human approved in this chat')
+            record.update(status='approved', approved_at=stamp, approval_note=args.note or 'Human approval recorded')
         elif args.action == 'skip':
             if status not in ('pending', 'approved'):
                 raise ValueError('Only an unstarted round can be skipped')
@@ -66,7 +79,7 @@ def execute(args):
             if any(key != rid and value['status'] in UNFINISHED for key, value in rounds.items()):
                 raise ValueError('Finish/recover the unfinished round before starting another')
             last = state['last_successful_search_at']
-            start = (datetime.fromisoformat(last).astimezone(BEIJING).date() - timedelta(days=7)
+            start = (datetime.fromisoformat(last).astimezone(zone).date() - timedelta(days=7)
                      if last else now.date() - timedelta(days=30))
             record.update(status='running', started_at=stamp, search_from=start.isoformat(),
                           search_to=now.date().isoformat())
@@ -92,8 +105,10 @@ def execute(args):
             if status not in ('pending_publish', 'publish_failed'):
                 raise ValueError('No validated publication is pending')
             if not args.archive or not args.commit_url or not re.fullmatch(
-                    r'https://github\.com/cichaderuntu/agent-app-interviewer/commit/[0-9a-f]{40}', args.commit_url):
+                    r'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/commit/[0-9a-f]{40}', args.commit_url):
                 raise ValueError('Completion requires the actual commit URL and a downloaded verified archive')
+            if repository and not args.commit_url.startswith('https://github.com/' + repository + '/commit/'):
+                raise ValueError('Commit URL must match the configured repository')
             result = validate(args.repo_root / 'agent-app-interviewer')
             if not result['ok']:
                 raise ValueError('Bank validation failed before completion')
@@ -116,6 +131,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     repo = Path(__file__).resolve().parents[2]
     parser.add_argument('--state', type=Path, default=repo / 'research/weekly-maintenance/state.json')
+    parser.add_argument('--config', type=Path, default=repo / 'research/weekly-maintenance/config.json',
+                        help='Optional local schedule/repository JSON config; keep private settings untracked')
     parser.add_argument('--at', help='Timezone-aware test time; omit for live runs')
     parser.add_argument('--round', dest='round_id', help='Resume an explicitly identified unfinished round')
     parser.add_argument('--repo-root', type=Path, default=repo)
