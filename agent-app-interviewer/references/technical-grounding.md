@@ -117,3 +117,27 @@
 来源：[官方文档](https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside)，核验2026-10-17。
 
 支持范围：读缓存及回源、更新数据后失效缓存、TTL与一致性限制；不保证任意并发时序下的强一致性。
+
+## T19 MCP 2026-07-28 Streamable HTTP
+
+来源：[官方文档](https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http)，核验2026-10-19。
+
+支持范围：2026-07-28的POST请求与JSON/SSE响应、无协议会话或GET恢复流、版本错误和兼容回退；不得套用到旧版或普通业务SSE。
+
+限制：仅支持指定协议版本；不为业务幂等和任务存储设计背书。
+
+## T20 MCP 2025-06-18 Transports（历史规范）
+
+来源：[官方文档](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)，核验2026-10-19。
+
+支持范围：历史版本的initialize相关会话、POST/GET、可选SSE重放与版本头；不作为2026-07-28的通用要求。
+
+限制：历史规范，仅用于版本兼容比较；不声称是当前最新行为。
+
+## T21 LangGraph Graph API overview
+
+来源：[官方文档](https://docs.langchain.com/oss/python/langgraph/graph-api)，核验2026-10-19。
+
+支持范围：条件路由、动态Send分发、共享状态合并与super-step；外部回调去重、事务和完成屏障属于应用设计。
+
+限制：滚动文档，2026-10-19快照；不强制使用LangGraph，不保证任意外部任务恰好执行一次。

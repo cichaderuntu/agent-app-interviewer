@@ -10,11 +10,11 @@
     "D类为用户提供文档，使用内容摘要URI与PDF页码定位；不伪造网络链接，不把汇编面经重复计作独立原帖。"
   ],
   "counts": {
-    "job_descriptions": 14,
-    "interview_articles": 21,
+    "job_descriptions": 16,
+    "interview_articles": 24,
     "community_threads": 2,
     "unverified_leads": 4,
-    "technical_references": 18,
+    "technical_references": 21,
     "user_documents": 4
   },
   "sources": [
@@ -1023,7 +1023,129 @@
       "checked_at": "2026-10-17",
       "scope": "读缓存及回源、更新数据后失效缓存、TTL与一致性限制；不保证任意并发时序下的强一致性。",
       "caveat": "仅支持上述技术范围；题卡情景与评价规则为本技能设计。"
+    },
+    {
+      "id": "J15",
+      "company": "三七互娱",
+      "title": "AI 平台开发工程师",
+      "url": "https://www.nowcoder.com/jobs/detail/460086",
+      "source_type": "牛客招聘；页面显示公司HR账号",
+      "access": "职位正文已读",
+      "scope": "2027届校招；历史岗位样本",
+      "location": "广州",
+      "page_date": null,
+      "checked_at": "2026-10-19",
+      "eligibility": "页面标注2027届；职责要求本科及以上",
+      "status": "页面明确显示已结束；投递区间同时显示2026-08-13至2026-11-30，存在不一致，以已结束记录，不认定仍在招",
+      "summary": "平台工程覆盖Agent运行、知识库、模型网关与评测运维；可用于追问任务恢复、流量控制及交付证据。",
+      "caveat": "非雇主官网；官网搜索有同名条目但本次官网正文未定位到，不据摘要升级核验范围。日期为投递区间，不是本周发布时间。"
+    },
+    {
+      "id": "J16",
+      "company": "神州信息",
+      "title": "2027届-AI大模型工程师（政企方向）北京(J22570)",
+      "url": "https://www.nowcoder.com/jobs/detail/462716",
+      "job_id": "J22570",
+      "source_type": "牛客招聘；页面显示公司校招HR账号",
+      "access": "职位正文已读",
+      "scope": "2027届校招；应用与现场部署交付复合方向；历史岗位补查",
+      "location": "北京",
+      "page_date": null,
+      "checked_at": "2026-10-19",
+      "eligibility": "2027届本科及以上；要求Python、Linux、RAG与模型服务集成，接受项目驻场",
+      "status": "页面显示立即申请；未实际投递，剩余名额未知",
+      "summary": "要求把行业需求转为模型应用、部署和验收交付，评价需区分方案设计、实际实现与上线证据。",
+      "caveat": "非雇主官网；页面投递区间2026-07-01至2029-08-24异常宽，不能据此确认实际截止日或本周发布；LoRA和推理优化属于该复合岗位要求，不推广为所有应用岗门槛。"
+    },
+    {
+      "id": "I22",
+      "company": "网易云音乐（作者自述）",
+      "title": "网易 全栈 秋招 一面 2026.10.14",
+      "author": "黑羽三叶",
+      "url": "https://www.nowcoder.com/feed/main/detail/820f06013d9d45d5881e8f27cffe4082",
+      "source_type": "作者原帖",
+      "access": "原帖主体正文已读；不把推荐流作为原帖",
+      "scope": "秋招全栈技术一面；含AI应用话题",
+      "page_date": "2026-10-14",
+      "checked_at": "2026-10-19",
+      "date_note": "标题明确2026.10.14；页面显示10-14已编辑。",
+      "topics": [
+        "性能改进证据",
+        "RAG方案区别",
+        "Skills实践"
+      ],
+      "summary": "作者记录对项目优化依据和RAG方案差异的追问，可补充已有价值验证与检索题。",
+      "caveat": "个人自述；不采纳对面试官态度的评价为训练方式，也不把名词罗列变成必须背诵的评分项。"
+    },
+    {
+      "id": "I23",
+      "company": "网易云（作者自述）",
+      "title": "网易云全栈一面",
+      "author": "在抱佛脚的芝士很完美",
+      "url": "https://www.nowcoder.com/feed/main/detail/83ec14b3ae3b437b94ea89000667e701",
+      "source_type": "作者原帖",
+      "access": "原帖主体正文已读",
+      "scope": "全栈技术一面；原帖未明确校招或实习",
+      "page_date": null,
+      "checked_at": "2026-10-19",
+      "date_note": "主体标注面试10/13但未写年份；聚合页显示10-15，原帖显示相对时间，按本次快照记录，不将相对时间强换成精确发布日期。",
+      "topics": [
+        "并行子任务汇合",
+        "反馈闭环",
+        "数据库查询"
+      ],
+      "summary": "作者记录长耗时子任务完成后的继续执行问题，以及用户反馈如何回流的追问。",
+      "caveat": "个人自述，面试题经过作者整理；不把单次经历推广为公司统一要求。"
+    },
+    {
+      "id": "I24",
+      "company": "网易（作者标题自述）",
+      "title": "网易 Agent 开发一面：SSE、Streamable HTTP、MCP 版本兼容全问细节",
+      "author": "AIGC小白入门记",
+      "url": "https://www.nowcoder.com/discuss/938914958287306752",
+      "source_type": "作者账号原帖；付费专栏公开预览",
+      "access": "仅读公开导语及第1至12项问题；第13项截断，后续60%正文不可读且未使用",
+      "scope": "Agent开发面试话题样本；文中提到实习可用时间，招聘批次未核实",
+      "page_date": null,
+      "checked_at": "2026-10-19",
+      "date_note": "页面显示10-11 21:52，年份未明示；按本次检索窗口中的发现记录，不冒充明确的2026面试日期。",
+      "topics": [
+        "MCP传输",
+        "版本兼容"
+      ],
+      "summary": "公开预览明确列出传输适配和版本兼容问题；仅用于选题，技术判断另据官方规范。",
+      "caveat": "付费专栏内容，未独立确认作者是否亲历；不采用标题中全问或导语中每次遇到的频率暗示，不推测付费内容。"
+    },
+    {
+      "id": "T19",
+      "title": "MCP 2026-07-28 Streamable HTTP",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "source_type": "官方技术文档",
+      "access": "正文已读；重点核对版本、断流与兼容章节",
+      "checked_at": "2026-10-19",
+      "scope": "2026-07-28的POST请求与JSON/SSE响应、无协议会话或GET恢复流、版本错误和兼容回退；不得套用到旧版或普通业务SSE。",
+      "caveat": "仅支持指定协议版本；不为业务幂等和任务存储设计背书。"
+    },
+    {
+      "id": "T20",
+      "title": "MCP 2025-06-18 Transports（历史规范）",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/transports",
+      "source_type": "官方技术文档",
+      "access": "正文已读；重点核对历史传输、会话及版本头",
+      "checked_at": "2026-10-19",
+      "scope": "历史版本的initialize相关会话、POST/GET、可选SSE重放与版本头；不作为2026-07-28的通用要求。",
+      "caveat": "历史规范，仅用于版本兼容比较；不声称是当前最新行为。"
+    },
+    {
+      "id": "T21",
+      "title": "LangGraph Graph API overview",
+      "url": "https://docs.langchain.com/oss/python/langgraph/graph-api",
+      "source_type": "官方技术文档",
+      "access": "选读正文State/Reducers、Edges、Send与并行super-step章节",
+      "checked_at": "2026-10-19",
+      "scope": "条件路由、动态Send分发、共享状态合并与super-step；外部回调去重、事务和完成屏障属于应用设计。",
+      "caveat": "滚动文档，2026-10-19快照；不强制使用LangGraph，不保证任意外部任务恰好执行一次。"
     }
   ],
-  "updated_at": "2026-10-17"
+  "updated_at": "2026-10-19"
 }

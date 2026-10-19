@@ -10,7 +10,7 @@ description: 面向国内校招与实习的 Agent／AI应用开发模拟面试�
 ## 首次使用与加载
 
 1. 开始、继续面试前读取 [会话与选题规则](references/session.md)。
-2. 选核心题前查 [题卡索引](references/question-index.md)，只加载当前相关题卡文件；无需一次读完50张题卡。
+2. 选核心题前查 [题卡索引](references/question-index.md)，只加载当前相关题卡文件；无需一次读完52张题卡。
 3. 评价前按 [评价与复盘](references/assessment.md) 建立证据标准。
 4. 查来源或遇到技术争议时，按需读取 [来源账本](references/sources.json) 中的目标ID和 [技术依据](references/technical-grounding.md)。JSON可用文件工具搜索ID或按需读取，不依赖特定脚本、API或联网服务。D类文档的选读页、面经背景与修正说明见 [文档选读与面经摘编](references/pdf-import-notes.md)，仅在选到相关题目或用户要求复习这些材料时读取。
 

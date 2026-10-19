@@ -119,7 +119,8 @@
       "intent": "解释召回、融合与重排各自职责",
       "source_ids": [
         "I03",
-        "I11"
+        "I11",
+        "I22"
       ],
       "rubric_origin": "本技能原创训练标准；不是招聘方评分或原帖标准答案",
       "required_evidence": [
@@ -128,7 +129,8 @@
         "通过相关性样本与延迟成本选择候选数"
       ],
       "acceptable_alternatives": [
-        "RRF、经验证的分数融合、单路后重排均可；不固定TopK"
+        "RRF、经验证的分数融合、单路后重排均可；不固定TopK",
+        "先明确检索、融合、重排和迭代决策的实际流程；仅报出Agentic/Hybrid等名称不增加充分性。"
       ],
       "followup_triggers": [
         {
