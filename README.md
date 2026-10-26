@@ -11,6 +11,7 @@
 - 支持简单、中等、困难三档；新一轮未指定时先询问难度，选择后再出技术题。
 - 无简历或 JD 时，可直接开始通用基础与场景面试。
 - 接受合理的替代实现，区分回答不足、未覆盖内容与经过提示的表现。
+- 支持个人真实面经优先选题，侧重相关原题和复盘重点，灵活安排数量并补充岗位能力；个人资料可留在本地。
 
 ## 使用
 
@@ -55,6 +56,7 @@ agent-app-interviewer/
 ├── agents/openai.yaml          界面元信息
 └── references/
     ├── session.md              选题、预算与会话记录
+    ├── personal-interviews.md  可选的个人面经优先规则
     ├── assessment.md           证据评价、复盘与复练
     ├── question-index.md       题卡索引
     ├── cards/                 按主题分组的题卡
@@ -63,6 +65,8 @@ agent-app-interviewer/
 ```
 
 技能文件全部使用相对路径，可以随整个目录一起迁移。日常使用无需一次加载所有题卡。
+
+若有自己的真实面经，可在会话中提供材料并要求“以后更多参考这份面经”；需要跨会话复用时，可在私人工作区保存 `research/personal-interviews/profile.json` 并告知其位置。规则见 [个人面经选题](agent-app-interviewer/references/personal-interviews.md)。相同条件下优先相关个人考点，不设每轮必须考多少道的限制；个人配置与原文不包含在本仓库中，未配置时正常使用通用题库。
 
 ## 资料与评价依据
 

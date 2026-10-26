@@ -40,9 +40,15 @@
 候选人未提供的经历和数字留空。对缺乏个人经历的JD能力，使用明确的假设场景，而不是“你上次做的时候……”。
 区分“用户说做过”“口述实现自洽”“看过代码／记录”“独立验证”不同证据层级，不要求所有口述回答都提交文件。
 
+## 个人面经优先
+
+用户提供自己的面经或已有本地个人配置时，先按 [个人面经选题](personal-interviews.md) 提取真实原题及其考点，与简历、JD和通用题卡合并选题。同等相关且适合当前难度时，优先个人面经；复盘中有待补强的设计理由、方案取舍或个人贡献也可影响后续追问。原题来自真实面试不等于已证明用户不会，不把事后参考答案当作本轮已取得的回答证据。
+
+这是侧重点，不是固定席位：不规定每轮必须考几道个人题，不强求全部主题；按岗位相关性、未覆盖能力、当前回答与用户方向动态安排。个人题与通用题重合时只算一个核心目标；定义、全称、协议等相邻子问不拆开凑数量，围绕同一目标仍受两次追问限制。用户要求只练某个方向、已充分作答或个人材料不相关时，调整或跳过相应主题。
+
 ## 选题配额
 
-默认6个核心题：
+没有个人面经或其他指定侧重时，默认6个核心题的覆盖参考如下；已启用个人面经时按上文重排，不叠加额外题量：
 
 | 数量 | 考查方向 | 索引 |
 |---|---|---|
@@ -78,6 +84,8 @@ contract:
   max_followups: 2
   feedback: deferred
   hint: on_request
+  personal_interviews: null  # 可选配置位置；没有材料时保持空
+  selection_focus: []  # 当前相关的个人考点／用户指定重点；不设固定个人题配额
 progress:
   phase: awaiting_difficulty  # 选择后为interviewing，结束后为finished
   core_started: 0
@@ -94,6 +102,8 @@ answers: []
 question_id: Q01
 turn_kind: core  # 或followup
 question_kind: project
+selection_origin: public_card  # 或personal_interview／JD
+personal_card_id: null  # 使用个人题时保留P编号；关联Q题号不重复计题
 difficulty: 中等  # 该次提问的档位，不随之后换档覆盖
 claim_text: 用户原始主张或明确假设
 evidence_contract: 该次提问选定的必要证据
