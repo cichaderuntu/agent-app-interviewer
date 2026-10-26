@@ -141,3 +141,35 @@
 支持范围：条件路由、动态Send分发、共享状态合并与super-step；外部回调去重、事务和完成屏障属于应用设计。
 
 限制：滚动文档，2026-10-19快照；不强制使用LangGraph，不保证任意外部任务恰好执行一次。
+
+## T22 NIST trec_eval success at cutoffs
+
+来源：[官方资料](https://github.com/usnistgov/trec_eval/blob/main/m_success.c)，核验2026-10-26。
+
+支持范围：success@k的至少命中一项相关文档的二值定义；本技能将该明确定义称为Hit@k，跨工具名称需另行确认。
+
+限制：不支持行业频率或生成答案正确率；没有复制源码。
+
+## T23 NIST trec_eval recall at cutoffs
+
+来源：[官方资料](https://github.com/usnistgov/trec_eval/blob/main/m_recall.c)，核验2026-10-26。
+
+支持范围：按排序截止位置计算已检出的相关文档数除以相关文档总数；分母来自提供的相关性判断。
+
+限制：文档级实现不自动适用于片段级标注；未完整标注时需说明口径。
+
+## T24 NIST trec_eval reciprocal rank
+
+来源：[官方资料](https://github.com/usnistgov/trec_eval/blob/main/m_recip_rank.c)，核验2026-10-26。
+
+支持范围：首个相关结果的名次倒数及跨查询平均；若只评前k项需显式注明截断口径。
+
+限制：MRR主要反映首个相关结果位置，不表示覆盖了全部证据。
+
+## T25 LangGraph Checkpointers
+
+来源：[官方资料](https://docs.langchain.com/oss/python/langgraph/checkpointers)，核验2026-10-26。
+
+支持范围：线程与检查点关联、已成功节点的pending writes恢复、回放重执行，以及sync/async/exit持久化时机差异。
+
+限制：2026-10-26滚动文档快照；支持条件取决于版本与存储实现，不保证外部副作用恰好一次。

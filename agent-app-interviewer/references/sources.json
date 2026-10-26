@@ -10,11 +10,11 @@
     "D类为用户提供文档，使用内容摘要URI与PDF页码定位；不伪造网络链接，不把汇编面经重复计作独立原帖。"
   ],
   "counts": {
-    "job_descriptions": 16,
-    "interview_articles": 24,
+    "job_descriptions": 17,
+    "interview_articles": 27,
     "community_threads": 2,
-    "unverified_leads": 4,
-    "technical_references": 21,
+    "unverified_leads": 5,
+    "technical_references": 25,
     "user_documents": 4
   },
   "sources": [
@@ -1145,7 +1145,139 @@
       "checked_at": "2026-10-19",
       "scope": "条件路由、动态Send分发、共享状态合并与super-step；外部回调去重、事务和完成屏障属于应用设计。",
       "caveat": "滚动文档，2026-10-19快照；不强制使用LangGraph，不保证任意外部任务恰好执行一次。"
+    },
+    {
+      "id": "J17",
+      "company": "Lumicross 光启无界",
+      "title": "AI应用开发实习生",
+      "url": "https://lumicross.ai/zh/careers",
+      "source_type": "雇主招聘官网",
+      "access": "已读招聘页；本条仅选取AI应用开发实习生章节，不混入高级或全职岗位要求",
+      "scope": "本科/硕士在读实习",
+      "location": "上海/远程",
+      "page_date": null,
+      "checked_at": "2026-10-26",
+      "eligibility": "本科或研究生在读；页面标注至少3个月、每周至少3天",
+      "status": "官网列出岗位及邮箱投递入口；没有实际投递或确认剩余名额",
+      "summary": "实习职责涉及业务Agent模块、部署测试、调用链观测及记忆迭代，强调Python与实际项目。",
+      "caveat": "未显示发布日期和岗位编号，不算本周新发布；同页高级后端、全职AI应用工程师的要求不套给实习岗。"
+    },
+    {
+      "id": "I25",
+      "company": "字节跳动（作者自述）",
+      "title": "字节 Agent 日常一面通过",
+      "author": "offer辅助达人",
+      "url": "https://www.nowcoder.com/feed/main/detail/0ee160a2d38f4b5daaf1965cf975a8f0",
+      "source_type": "作者原帖",
+      "access": "原帖主体全文已读；未采用评论和推荐流作为本帖内容",
+      "scope": "标题称日常面试；正文提到在校阶段，未独立核实岗位批次",
+      "page_date": null,
+      "checked_at": "2026-10-26",
+      "date_note": "页面显示10-20 15:46，未单列年份及面试日期；本轮发现于2026-10-26快照，不补造精确面试日期。",
+      "topics": [
+        "检索指标",
+        "失败恢复",
+        "状态合并",
+        "上下文压缩",
+        "成本口径"
+      ],
+      "summary": "作者按回忆整理了状态恢复、检索指标区别，以及工具调用减少但Token增加的追问。",
+      "caveat": "作者明确无录音、凭回忆整理，通知结果也属自述；自动恢复的偏好不转为绕过授权的通用规则，也不因内容深入而自动切困难档。"
+    },
+    {
+      "id": "I26",
+      "company": "字节跳动（作者自述）",
+      "title": "字节 AI Agent全栈开发 面经",
+      "author": "ZESHAWN_",
+      "url": "https://www.nowcoder.com/feed/main/detail/88e22e99028942bcbac1ed57395f2e60",
+      "source_type": "作者原帖",
+      "access": "原帖主体全文已读",
+      "scope": "AI Agent全栈技术面；轮次、校招或实习未明示",
+      "page_date": null,
+      "checked_at": "2026-10-26",
+      "date_note": "页面显示10-20 18:49，未写年份；不以推荐流或评论推断部门和招聘批次。",
+      "topics": [
+        "工具调用协议",
+        "进程通信",
+        "LRU与TTL"
+      ],
+      "summary": "记录文本消息实现工具调用、进程通信及带统一过期时长LRU的题目；本轮仅补充既有LRU变体。",
+      "caveat": "个人整理，非逐字记录或公司统一要求；前端/Electron范围按目标JD选用，不扩成所有Agent实习的必备项。"
+    },
+    {
+      "id": "I27",
+      "company": "未具名B端小公司（作者自述）",
+      "title": "Agent凉经😭",
+      "author": "迷茫期已过",
+      "url": "https://www.nowcoder.com/feed/main/detail/5733bf8605d44262a596ad7ba738e737",
+      "source_type": "作者原帖；历史补查",
+      "access": "原帖19项题目及说明已读；未采用评论推测的项目来源或AI生成回答",
+      "scope": "本地Coding Agent技术面；招聘批次未明示",
+      "page_date": null,
+      "checked_at": "2026-10-26",
+      "date_note": "页面07-07 16:20，正文称7.6面试，年份未单写；明确作为检索窗口外历史样本。",
+      "topics": [
+        "记忆纠错",
+        "压缩信息保真",
+        "模型适配",
+        "补丁验证"
+      ],
+      "summary": "作者记录旧文件摘要失效、错误记忆纠正和压缩后约束遗漏等问题，用于完善既有记忆与上下文题。",
+      "caveat": "个人自述；作者说明复盘参考了AI回答，不能把那些回答当作面试官标准。"
+    },
+    {
+      "id": "L05",
+      "company": "字节跳动（镜像摘要称）",
+      "title": "AI研发实习生 - 模型数据工程",
+      "url": "https://jobs.bytedance.com/campus/position/7700514231603153157/detail",
+      "job_id": "7700514231603153157",
+      "source_type": "官网待核验；仅招聘镜像搜索摘要",
+      "access": "官方详情打开失败；镜像正文也未读到，只有搜索摘要",
+      "checked_at": "2026-10-26",
+      "page_date": null,
+      "discovery_url": "https://jobs.ultraai.site/jobs/bytedance_campus/7700514231603153157",
+      "note": "镜像摘要收录时间2026-10-25，不是雇主发布日期；待核验岗位身份、正文、状态与实际要求，不支持题卡或评分。"
+    },
+    {
+      "id": "T22",
+      "title": "NIST trec_eval success at cutoffs",
+      "url": "https://github.com/usnistgov/trec_eval/blob/main/m_success.c",
+      "source_type": "官方评测实现",
+      "access": "源文件正文已读",
+      "checked_at": "2026-10-26",
+      "scope": "success@k的至少命中一项相关文档的二值定义；本技能将该明确定义称为Hit@k，跨工具名称需另行确认。",
+      "caveat": "不支持行业频率或生成答案正确率；没有复制源码。"
+    },
+    {
+      "id": "T23",
+      "title": "NIST trec_eval recall at cutoffs",
+      "url": "https://github.com/usnistgov/trec_eval/blob/main/m_recall.c",
+      "source_type": "官方评测实现",
+      "access": "源文件正文已读",
+      "checked_at": "2026-10-26",
+      "scope": "按排序截止位置计算已检出的相关文档数除以相关文档总数；分母来自提供的相关性判断。",
+      "caveat": "文档级实现不自动适用于片段级标注；未完整标注时需说明口径。"
+    },
+    {
+      "id": "T24",
+      "title": "NIST trec_eval reciprocal rank",
+      "url": "https://github.com/usnistgov/trec_eval/blob/main/m_recip_rank.c",
+      "source_type": "官方评测实现",
+      "access": "源文件正文已读",
+      "checked_at": "2026-10-26",
+      "scope": "首个相关结果的名次倒数及跨查询平均；若只评前k项需显式注明截断口径。",
+      "caveat": "MRR主要反映首个相关结果位置，不表示覆盖了全部证据。"
+    },
+    {
+      "id": "T25",
+      "title": "LangGraph Checkpointers",
+      "url": "https://docs.langchain.com/oss/python/langgraph/checkpointers",
+      "source_type": "官方技术文档",
+      "access": "选读正文threads、super-steps、pending writes、replay与durability modes",
+      "checked_at": "2026-10-26",
+      "scope": "线程与检查点关联、已成功节点的pending writes恢复、回放重执行，以及sync/async/exit持久化时机差异。",
+      "caveat": "2026-10-26滚动文档快照；支持条件取决于版本与存储实现，不保证外部副作用恰好一次。"
     }
   ],
-  "updated_at": "2026-10-19"
+  "updated_at": "2026-10-26"
 }
