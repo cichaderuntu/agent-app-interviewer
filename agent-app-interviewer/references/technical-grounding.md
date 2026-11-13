@@ -44,6 +44,8 @@
 
 支持范围：预定控制流与动态决策的区别；用于架构讨论而非统一分类标准。
 
+2026-11-13复核协调者与执行节点示例。资料展示结构化计划和动态分派，工具可用性、身份权限与业务约束由应用在运行时核验。
+
 ## T08 Go Language Specification: Channels and Go Statements
 
 来源：[官方文档](https://go.dev/ref/spec)。
@@ -173,3 +175,9 @@
 支持范围：线程与检查点关联、已成功节点的pending writes恢复、回放重执行，以及sync/async/exit持久化时机差异。
 
 限制：2026-10-26滚动文档快照；支持条件取决于版本与存储实现，不保证外部副作用恰好一次。
+
+## T26 LangSmith Evaluation types
+
+来源：[官方资料](https://docs.langchain.com/langsmith/evaluation-types)，核验于2026-11-13。
+
+用于Q23的离线基准、组件断言、版本回归及线上错例回流。评测是否能代表实际业务，需要检查样本、参考标准和验证条件。

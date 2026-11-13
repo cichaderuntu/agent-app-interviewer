@@ -10,11 +10,11 @@
     "D类为用户提供文档，使用内容摘要URI与PDF页码定位；不伪造网络链接，不把汇编面经重复计作独立原帖。"
   ],
   "counts": {
-    "job_descriptions": 17,
-    "interview_articles": 27,
+    "job_descriptions": 21,
+    "interview_articles": 30,
     "community_threads": 2,
-    "unverified_leads": 5,
-    "technical_references": 25,
+    "unverified_leads": 6,
+    "technical_references": 26,
     "user_documents": 4
   },
   "sources": [
@@ -636,10 +636,11 @@
       "id": "T07",
       "title": "LangGraph Workflows and Agents",
       "url": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
-      "scope": "预定控制流与动态决策的区别；用于架构讨论而非统一分类标准。",
+      "scope": "预定控制流、动态决策，以及协调者生成结构化计划并分派给执行节点的示例。",
       "source_type": "官方技术文档",
       "access": "正文已读",
-      "checked_at": "2026-10-16"
+      "checked_at": "2026-11-13",
+      "caveat": "示例展示编排与分派，实际工具可用性、权限及副作用需由应用单独验证。"
     },
     {
       "id": "T08",
@@ -1277,7 +1278,157 @@
       "checked_at": "2026-10-26",
       "scope": "线程与检查点关联、已成功节点的pending writes恢复、回放重执行，以及sync/async/exit持久化时机差异。",
       "caveat": "2026-10-26滚动文档快照；支持条件取决于版本与存储实现，不保证外部副作用恰好一次。"
+    },
+    {
+      "id": "J18",
+      "company": "百度",
+      "title": "AI Agent 开发工程师（实习生）（J106681）",
+      "url": "https://talent.baidu.com/jobs/detail/INTERN/162291c8-43e8-4cc0-9c96-3fb0a7ebb720",
+      "job_id": "J106681",
+      "source_type": "雇主招聘官网",
+      "access": "已读岗位标题、部门、日期、职责与要求",
+      "scope": "ACG日常技术实习",
+      "location": "北京",
+      "page_date": "2026-10-19",
+      "eligibility": "要求Python工程能力及LLM应用经验，TypeScript和技能包或评测实践为加分项。",
+      "status": "官网详情可读，未确认申请入口或剩余名额。",
+      "summary": "职责涉及Agent运行框架、可复用技能契约、回归任务集及通过追踪定位失败。",
+      "caveat": "页面标注日期，未独立核实首发时间；列示人数不能代表剩余名额。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "J19",
+      "company": "百度",
+      "title": "Agent工程师实习生（J107185）",
+      "url": "https://talent.baidu.com/jobs/detail/INTERN/48d0f3a9-e643-41c6-849f-1d2a4fcd5772",
+      "job_id": "J107185",
+      "source_type": "雇主招聘官网",
+      "access": "已读岗位标题、部门、日期、职责与要求",
+      "scope": "MEG日常技术实习，实验评估应用",
+      "location": "北京",
+      "page_date": "2026-11-08",
+      "eligibility": "本科及以上在读，要求Agent或工作流实践、Python与SQL，连续实习4个月以上优先。",
+      "status": "官网详情可读，未确认申请入口或剩余名额。",
+      "summary": "岗位涉及模拟评估、数据标注与真实实验对照。",
+      "caveat": "实验平台方向的要求不外推到其他Agent开发岗；页面日期未独立核实为首发。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "J20",
+      "company": "科兴 SINOVAC",
+      "title": "FDE 企业前沿部署工程师（AI 应用方向）",
+      "url": "https://job.ncepu.edu.cn/docs/2026-11/2c13e2e53a474ea9a91349deb0c189ac.pdf",
+      "source_type": "华北电力大学就业网站托管的企业校招简章",
+      "access": "已读岗位、对象、职责、要求及投递说明；未收录联系方式与待遇",
+      "scope": "2027届校招，企业AI应用和部署交付",
+      "location": "北京昌平",
+      "page_date": null,
+      "eligibility": "2027届应届本科及以上；强调编程能力，Agent及RAG实践优先。",
+      "status": "简章列有投递方式，未见明确截止日，未核实当前名额。",
+      "summary": "涵盖Agent编排、企业知识库、模型接入评测及业务方案交付。",
+      "caveat": "网址中的月份仅表示托管路径，简章未给出明确发布日期。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "J21",
+      "company": "念空（GokuTech）",
+      "title": "校招 - 大模型应用开发实习生",
+      "url": "https://goku-tech.com/careers.html",
+      "source_type": "雇主招聘官网",
+      "access": "已读招聘页第07节职责与要求，不混用同页其他岗位",
+      "scope": "校招栏目中的大模型应用开发实习",
+      "location": null,
+      "page_date": null,
+      "eligibility": "本科及以上学历，强调工程实现、表达协作和业务效果。",
+      "status": "官网列有岗位及投递说明，未核实当前名额。",
+      "summary": "涉及工具调用接入、知识库加工和检索、自然语言查库与API部署。",
+      "caveat": "官网未列日期，作为补充样本收录；第07节是页内序号。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "I28",
+      "company": "淘天（作者自述）",
+      "title": "秋招 淘天 AI Agent / 大模型应用研发 一面面经",
+      "author": "雾已散声宜慢",
+      "url": "https://www.nowcoder.com/feed/main/detail/6d45897f57b0484eb9863bc991993866",
+      "source_type": "牛客作者原帖",
+      "access": "已读原帖25个条目；未采用评论、推荐内容和答案",
+      "scope": "秋招AI Agent／大模型应用研发技术一面",
+      "page_date": null,
+      "date_note": "页面显示11-07 19:18，未明确显示年份和实际面试日期。",
+      "topics": [
+        "规划和执行的能力边界",
+        "项目归因",
+        "混合检索",
+        "上下文压缩",
+        "暂停恢复"
+      ],
+      "summary": "帖文围绕知识结构与人工整理的归因，以及规划器在工具受限时如何形成可执行步骤。",
+      "caveat": "个人自述。用于选题；不据此推断招聘方通用标准。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "I29",
+      "company": "百度（作者自述）",
+      "title": "百度一面面经",
+      "author": "祸祸525",
+      "url": "https://www.nowcoder.com/feed/main/detail/74481a7b176142a188400c93f598aea7",
+      "source_type": "牛客作者原帖",
+      "access": "已读原帖正文，未采用推荐帖或评论",
+      "scope": "实习技术一面，具体岗位未写明",
+      "page_date": null,
+      "date_note": "页面显示11-02 20:43已编辑；正文称11月1日面试，未明确显示年份。",
+      "topics": [
+        "Agent调用链",
+        "MCP工具选择",
+        "多Agent评测",
+        "缓存与数据库不一致"
+      ],
+      "summary": "作者记录了项目调用链、工具发现和长期缓存不一致的追问。",
+      "caveat": "作者对缓存故障原因的转述缺少系统日志与完整时序，仅用来设计排查情景。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "I30",
+      "company": "快手（作者自述）",
+      "title": "快手 可灵专项 Agent Harness 一面面经（回忆版）",
+      "author": "仁者小无敌",
+      "url": "https://www.nowcoder.com/discuss/946891033357381632",
+      "source_type": "牛客作者原帖",
+      "access": "已读四项面试回忆及反问，未采用推荐帖",
+      "scope": "可灵专项技术一面，招聘批次未写明",
+      "page_date": null,
+      "date_note": "页面显示11-02 22:06，未明确显示年份或面试日。",
+      "topics": [
+        "项目起点与调研",
+        "个人负责模块",
+        "AI协作解决实际问题"
+      ],
+      "summary": "作者回忆被问到如何确定项目方向、做设计取舍及亲自解决一个问题。",
+      "caveat": "作者注明只记得部分内容，不能用于判断题目覆盖率或难度分布。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "L06",
+      "company": "未具名",
+      "title": "AI agent应用开发一面面经",
+      "url": "https://www.nowcoder.com/feed/main/detail/416c3118a9c84fe0a43dc00f9eb9bec2",
+      "source_type": "牛客待核验面经线索",
+      "access": "搜索结果有摘要，打开原页只返回导航",
+      "page_date": null,
+      "note": "正文与发布信息未核实，不进入题卡、参考回答或评分。",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "id": "T26",
+      "title": "LangSmith Evaluation types",
+      "url": "https://docs.langchain.com/langsmith/evaluation-types",
+      "source_type": "官方技术文档",
+      "access": "已读离线基准、组件测试、回归测试及线上反馈章节",
+      "scope": "代表性数据集上的版本对比、组件断言、固定回归样本和线上错例回流。",
+      "caveat": "滚动文档。支持评测方法分类，具体指标、可比条件和业务验收需由项目定义。",
+      "checked_at": "2026-11-13"
     }
   ],
-  "updated_at": "2026-10-26"
+  "updated_at": "2026-11-13"
 }

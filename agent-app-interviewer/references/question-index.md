@@ -1,6 +1,6 @@
 # 题卡索引
 
-当前53道基础题；初始40题来自2026-10-16调研，后续网络共增补5题，2026-10-17用户PDF选读增补8题。证据要求、参考回答与追问为训练设计；级别不代表招聘公司评级。
+当前54道基础题；初始40题来自2026-10-16调研，后续网络共增补6题，2026-10-17用户PDF选读增补8题。证据要求、参考回答与追问为训练设计；级别不代表招聘公司评级。
 
 先选择问题，再只读对应JSON中的目标题卡。部分题卡含reference_answer，仅在用户要求讲解或结束复盘后使用。PDF页码与面经限制见 [文档选读与面经摘编](pdf-import-notes.md)。
 
@@ -9,7 +9,7 @@
 | ID | 主题 | 题型／级别 | 核心问题 | 题卡文件 | 来源 |
 |---|---|---|---|---|---|
 | Q01 | 项目与业务 | 项目／初级 | 选一条真实请求，讲清输入、路由、工具执行、存储到输出的全过程，以及你负责的部分。 | [projects.json](cards/projects.json) | I02 |
-| Q02 | 项目与业务 | 项目／中级 | 项目价值如何验证？哪些瓶颈被解决，改善来自哪个环节？ | [projects.json](cards/projects.json) | I02、I13、I22 |
+| Q02 | 项目与业务 | 项目／中级 | 项目价值如何验证？哪些瓶颈被解决，改善来自哪个环节？ | [projects.json](cards/projects.json) | I02、I13、I22、I28 |
 | Q03 | 项目与业务 | 项目／中级 | 为什么自研Agent核心流程？使用现有框架的代价和收益是什么？ | [projects.json](cards/projects.json) | I06、I16、D03 |
 | Q04 | 项目与业务 | 项目／初级 | 项目是否部署、被谁使用？你遇到的具体困难和处理实例是什么？ | [projects.json](cards/projects.json) | I18、J16 |
 | Q05 | RAG | 基础／初级 | 讲清文档入库与在线问答两条链路。 | [rag.json](cards/rag.json) | I10、I11 |
@@ -30,7 +30,7 @@
 | Q20 | 上下文与记忆 | 场景／中级 | 长任务发生中断或忘记执行计划时，怎样继续？ | [agents.json](cards/agents.json) | I07 |
 | Q21 | 上下文与记忆 | 场景／中级 | 旧记忆与当前需求冲突时，怎样判断是否沿用旧方案？ | [agents.json](cards/agents.json) | I15、I27 |
 | Q22 | 上下文与记忆 | 场景／中级 | 长文档分块后，汇总结果再次超出上下文时如何继续处理？ | [agents.json](cards/agents.json) | I01、D03、I25、I27 |
-| Q23 | 评测与可靠性 | 场景／中级 | 最终输出与中间节点怎样分别评估？评测样本和评分规则怎样构建？ | [evaluation.json](cards/evaluation.json) | J01、J04、I19、D02、I23、I25 |
+| Q23 | 评测与可靠性 | 场景／中级 | 最终输出与中间节点怎样分别评估？评测样本和评分规则怎样构建？ | [evaluation.json](cards/evaluation.json) | J01、J04、I19、D02、I23、I25、J18、J19 |
 | Q24 | 评测与可靠性 | 项目／中级 | 业务指标、Agent表现和你承担的模块之间如何对应？ | [evaluation.json](cards/evaluation.json) | I13、D03、D04 |
 | Q25 | 评测与可靠性 | 场景／中级 | 模型输出结论如何得到事实依据？是否有确定性校验？ | [evaluation.json](cards/evaluation.json) | I01 |
 | Q26 | 评测与可靠性 | 场景／中级 | 用另一个Agent检查输出时，如何处理检查者自身出错？ | [evaluation.json](cards/evaluation.json) | I01 |
@@ -41,7 +41,7 @@
 | Q31 | 后端与基础 | 基础／初级 | 进程、线程、协程有什么区别？进程切换的成本来自哪里？ | [backend.json](cards/backend.json) | I04、I10 |
 | Q32 | 后端与基础 | 场景／中级 | Agent并发请求如何限流？多Agent同时运行有哪些性能问题？ | [backend.json](cards/backend.json) | I10、I13、J15 |
 | Q33 | 后端与基础 | 基础／中级 | Redis数据结构或Java类加载怎样与项目中的实际使用对应？ | [backend.json](cards/backend.json) | I13 |
-| Q34 | AI Coding | 项目／中级 | 展示一次使用AI完成任务的过程，你修改过它的哪些技术决策？ | [projects.json](cards/projects.json) | I01、D03 |
+| Q34 | AI Coding | 项目／中级 | 展示一次使用AI完成任务的过程，你修改过它的哪些技术决策？ | [projects.json](cards/projects.json) | I01、D03、I30 |
 | Q35 | AI Coding | 场景／初级 | AI生成代码的质量如何保证？你用哪些测试或审查验证？ | [projects.json](cards/projects.json) | I14、I07、J12、J13、D03 |
 | Q36 | AI Coding | 场景／中级 | 面对长方案怎样抓重点审查，如何划分模型与普通代码的职责？ | [projects.json](cards/projects.json) | I01 |
 | Q37 | 手写代码 | 编码／中级 | 实现LRU Cache，再讨论题目给出的变种要求。 | [projects.json](cards/projects.json) | I01、I03、I26 |
@@ -57,12 +57,14 @@
 | Q47 | 评测与可靠性 | 场景／中级 | 同一应用有简单抽取与复杂工具任务，你会怎样选择模型并验证路由策略？ | [evaluation.json](cards/evaluation.json) | D01 |
 | Q48 | RAG | 场景／中级 | 企业知识库里不同租户和部门的文档，怎样保证RAG只使用当前用户有权访问的内容？ | [rag.json](cards/rag.json) | D01 |
 | Q49 | 后端与基础 | 场景／中级 | Agent长任务的SSE连接断开后，怎样恢复进度而不重复执行任务？ | [backend.json](cards/backend.json) | D01 |
-| Q50 | 后端与基础 | 场景／中级 | 更新知识或业务数据后，缓存仍返回旧内容，你会怎样设计一致性与修复机制？ | [backend.json](cards/backend.json) | D04 |
+| Q50 | 后端与基础 | 场景／中级 | 更新知识或业务数据后，缓存仍返回旧内容，你会怎样设计一致性与修复机制？ | [backend.json](cards/backend.json) | D04、I29 |
 
 | Q51 | 工具与编排 | 场景／中级 | 接入多个MCP服务时，你会怎样识别传输与协议版本，并处理兼容失败？ | [agents.json](cards/agents.json) | I24 |
 | Q52 | 后端与基础 | 场景／中级 | 一个长任务拆成多个外部子任务，怎样在全部完成后可靠地触发下一步？ | [backend.json](cards/backend.json) | I23 |
 
 | Q53 | 评测与可靠性 | 基础／中级 | 检索评测中的Hit@k、Recall@k和MRR分别衡量什么，怎样按任务选择指标？ | [evaluation.json](cards/evaluation.json) | I25 |
+
+| Q54 | 工具与编排 | 场景／中级 | 规划器生成了任务步骤，执行器如何判断这些步骤在当前工具和权限范围内可以执行？ | [agents.json](cards/agents.json) | I28、J18 |
 
 ## 选题约束
 
@@ -73,3 +75,5 @@
 - 追问、变体属于同一核心题分支，不占新核心题名额；实质切换考察目标时才计为新核心题。
 
 Q51先限定协议版本再评价兼容方案；Q52聚焦外部任务汇合，与Q46的代码协作和Q49的业务SSE恢复分别选题，不重复计为同一题的额外核心问题。
+
+Q54检查规划步骤能否由当前执行器完成。选题时与Q15的控制流选择、Q43的单次工具参数校验按目标区分。
